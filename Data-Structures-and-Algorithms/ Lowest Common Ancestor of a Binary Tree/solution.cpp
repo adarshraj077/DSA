@@ -1,0 +1,30 @@
+class Solution {
+public:
+//    bool isContain(TreeNode* root,TreeNode* val){
+//     if(!root){
+//         return false;
+//     }
+//     if(root==val){return true;}
+  
+
+//     return isContain(root->left,val) || isContain(root->right,val);
+//    }
+
+
+
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root || root==p || root==q){
+            return root;
+        }
+       TreeNode* left=lowestCommonAncestor(root->left,p,q);
+        TreeNode* right=lowestCommonAncestor(root->right,p,q);
+
+    if(left && right)return root;
+        
+       return left ? left : right;
+      
+
+
+        
+    }
+};
